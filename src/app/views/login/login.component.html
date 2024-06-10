@@ -1,0 +1,25 @@
+<div class="flex justify-content-center card">
+  <div class="col-12 lg:col-10 md:col-8 sm:col-8">
+    <p-card>
+      <div class="flex flex-column align-items-center">
+        <div class="col-12 text-center">
+          <i class="fa-solid fa-car fa-4x" style="color: #5998dc;"></i>
+          <h2 class="text-center">Car Sales</h2>
+        </div>
+        <div class="col-12">
+          <label for="">Usuário:</label>
+          <input [(ngModel)]="requestlogin.login" class="col-12" type="text" pInputText>
+        </div>
+        <div class="col-12">
+          <label for="">Senha:</label>
+          <input [(ngModel)]="requestlogin.password" class="col-12" type="password" pInputText>
+        </div>
+        <div class="col-12">
+          <button (click)="doLogin()" class="col-12" pButton type="button" label="Entrar" ></button>
+
+        </div>
+      </div>
+    </p-card>
+
+  </div>
+</div>

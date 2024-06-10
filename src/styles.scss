@@ -1,0 +1,10 @@
+@import "~primeng/resources/primeng.min.css";
+@import "~primeng/resources/themes/saga-blue/theme.css";
+
+$background-color: #252525 !important;
+$font-color: #fff !important;
+
+.p-card {
+  background-color: $background-color;
+  color: $font-color;
+}
