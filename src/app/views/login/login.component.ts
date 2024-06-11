@@ -1,3 +1,4 @@
+import { AlertService } from './../../resources/service/alert.service';
 import { FormsModule } from '@angular/forms';
 import { RequestLogin } from './../../resources/models/RequestLogin';
 import { Component, OnInit } from '@angular/core';
@@ -6,7 +7,8 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { LoginService } from '../../resources/service/login.service';
-import { ResponseLogin } from '../../resources/models/ResponseLogin';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,14 +27,18 @@ export class LoginComponent {
 
   public requestlogin: RequestLogin = new RequestLogin();
 
-  constructor(private loginService: LoginService){}
+  constructor(
+    private loginService: LoginService,
+    private alertService: AlertService,
+    private router: Router
+  ){}
 
   public doLogin():void {
     this.loginService.doLogin(this.requestlogin).subscribe(data => {
-      console.log(data);
+      this.router.navigate(['dashboard'])
     },
-    error => {
-      console.error(error);
+    httpError => {
+      this.alertService.error(httpError.error.message);
     })
   }
 }
